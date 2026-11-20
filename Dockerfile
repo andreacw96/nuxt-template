@@ -1,5 +1,5 @@
 # Stage 1: Build the application
-FROM node:24.15.0-alpine3.23 AS build
+FROM node:26.3.1-alpine3.23 AS build
 
 # Install pnpm and build dependencies
 RUN npm install -g pnpm@10 && mkdir /app
@@ -18,7 +18,7 @@ COPY . .
 RUN pnpm build
 
 # Stage 2: Create the final image
-FROM node:24.15.0-alpine3.23 AS prod
+FROM node:26.3.1-alpine3.23 AS prod
 
 # Set the NODE_ENV to production
 ENV NODE_ENV=production
